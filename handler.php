@@ -21,7 +21,7 @@
 //phpinfo();
 
 	try {  
-		$DBH = new PDO("$driver:host=$host;bdname=$bd_user;charset=$charset",$bd_user,$pass,$options);
+		$DBH = new PDO("$driver:host=$host;dbname=$bd_user;charset=$charset",$bd_user,$pass,$options);
 		echo "соединение прошло усешно!\nПрекрасно! Поздравляю!";
 	}  
 	catch(PDOException $e) {  
