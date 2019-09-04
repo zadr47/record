@@ -10,7 +10,7 @@
 
 	var_dump(PDO::getAvailableDrivers());
 	//$record можно заночить в бд
-	$driver = 'mysql';				//тип бд
+	$driver = 'pgsql';				//тип бд
 	$host = 'ec2-54-246-121-32.eu-west-1.compute.amazonaws.com';				//то что в url строке 
 	$bd_user = 'siunpcbvdiimna';				//логин от бд
 	$charset = 'utf8';
