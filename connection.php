@@ -5,8 +5,8 @@ function conn(){
 	//heroku
 	$driver = 'mysql';				
 	$host = 'ec2-54-246-121-32.eu-west-1.compute.amazonaws.com';				
-	$db_name = 'dfgngu63o3bvv0';
-	$user = "siunpcbvdiimna";
+	$db_name = 'siunpcbvdiimna';
+	$user = "dfgngu63o3bvv0";
 	$charset = 'utf8';
 	$pass = '5aceb95a0d56b72ac10c3ed0e3fb0465374f7a59d71c2727e47e67ac9853c7a1';
 	$port = '5432';
