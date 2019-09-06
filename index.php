@@ -14,6 +14,3 @@
 	</div>
 </body>
 </html>
-<?php
-//	print_r(PDO::getAvailableDrivers());
-?>

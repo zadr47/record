@@ -1,4 +1,6 @@
 <?php
+	require_once($_SERVER['DOCUMENT_ROOT'].'/connection.php');
+	
 	$data = $_REQUEST;
 	
 	if(empty($data['record'])){
@@ -7,25 +9,26 @@
 	}
 
 	$record = $data['record'];
+	$conn = conn();
 
-	//var_dump(PDO::getAvailableDrivers());
-	//echo "<br />";
+	/*
+	$sql = "INSERT INTO records (record) VALUES (:record);";
+	$snapshot = $conn->prepare($sql);
+	$snapshot->execute([':record' => $record]);
+	*/
 
-	//ЭТО РАБОТАЕТ НА HEROKU
-	$driver = 'pgsql';				
-	$host = 'ec2-54-246-121-32.eu-west-1.compute.amazonaws.com';				
-	$bd_name = 'dfgngu63o3bvv0';
-	$user = "siunpcbvdiimna";
-	$charset = 'utf8';
-	$pass = '5aceb95a0d56b72ac10c3ed0e3fb0465374f7a59d71c2727e47e67ac9853c7a1';
-	$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+	$sql = "INSERT INTO records (record) VALUES (?);";
+	$snapshot = $conn->prepare($sql);
+	//$snapshot->execute([$record]);
 
-
-
-	try {  
-		$DBH = new PDO("$driver:host=$host;dbname=$bd_name",$user,$pass);
-		echo "соединение прошло усешно!\nПрекрасно! Поздравляю!";
-	}  
-	catch(PDOException $e) {  
-	    echo $e->getMessage();  
+	$sql = "SELECT * FROM records";
+	$result_sql = $conn->query($sql);
+	$data_DB = $result_sql->fetchAll(PDO::FETCH_ASSOC);
+	
+	echo "<br />";
+	foreach($data_DB as $k => $v){
+		echo $v['record'];
+		echo "<br />";
 	}
+
+
