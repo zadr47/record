@@ -21,17 +21,17 @@
 	$id++;
 
 
-	/*
 	//ИМЕНОВЫННЫЙ PLACEHOLDER
-	$sql = "INSERT INTO records (record) VALUES (:record);";	//sql запрос 
-	$snapshot = $conn->prepare($sql);							//снимок запроса
-	$snapshot->execute([':record' => $record]);					//выполнение снмка запроса со значением
-	*/
+	$sql = "INSERT INTO `records` (id,record) VALUES (:id,:record);";	//sql запрос 
+	$snapshot = $conn->prepare($sql);									//снимок запроса
+	$snapshot->execute([':id' => $id , ':record' => $record]);			//выполнение снмка запроса со значением
 
+	/*
 	//ПОЗИЦИОННЫЙ PLACEHOLDER
-	$sql = "INSERT INTO `records` (id,record) VALUES (?,?);";		//sql запрос 
-	$snapshot = $conn->prepare($sql);								//снимок запроса
+	$sql = "INSERT INTO `records` (id,record) VALUES (?,?);";			//sql запрос 
+	$snapshot = $conn->prepare($sql);									//снимок запроса
 	$snapshot->execute([$id,$record]);									//выполнение снмка запроса со значением
+	*/
 
 	$sql = "SELECT * FROM `records`";
 	$result_sql = $conn->query($sql);
