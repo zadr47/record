@@ -22,11 +22,11 @@
 	*/
 
 	//ПОЗИЦИОННЫЙ PLACEHOLDER
-	$sql = "INSERT INTO records (record) VALUES ('?');";			//sql запрос 
+	$sql = "INSERT INTO 'records' (record) VALUES ('?');";			//sql запрос 
 	$snapshot = $conn->prepare($sql);							//снимок запроса
 	$snapshot->execute([$record]);								//выполнение снмка запроса со значением
 
-	$sql = "SELECT * FROM records";
+	$sql = "SELECT * FROM 'records'";
 	$result_sql = $conn->query($sql);
 	$data_DB = $result_sql->fetchAll(PDO::FETCH_ASSOC);
 	
