@@ -22,9 +22,9 @@
 	*/
 
 	//ПОЗИЦИОННЫЙ PLACEHOLDER
-	$sql = "INSERT INTO `records` (\"record\") VALUES ('?');";		//sql запрос 
+	$sql = "INSERT INTO `records` (\"record\") VALUES (?,'?');";		//sql запрос 
 	$snapshot = $conn->prepare($sql);							//снимок запроса
-	//$snapshot->execute([$record]);								//выполнение снмка запроса со значением
+	$snapshot->execute([1,$record]);								//выполнение снмка запроса со значением
 
 	$sql = "SELECT * FROM `records`";
 	//$result_sql = $conn->query($sql);
