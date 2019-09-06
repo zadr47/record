@@ -27,7 +27,7 @@
 	$snapshot->execute([$record]);								//выполнение снмка запроса со значением
 
 	$sql = "SELECT * FROM `records`";
-	$result_sql = $conn->query($sql);
+	//$result_sql = $conn->query($sql);
 	$data_DB = $result_sql->fetchAll(PDO::FETCH_ASSOC);
 	
 	echo "<br />";
