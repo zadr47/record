@@ -22,7 +22,7 @@
 	*/
 
 	//ПОЗИЦИОННЫЙ PLACEHOLDER
-	$sql = "INSERT INTO records (record) VALUES (?);";			//sql запрос 
+	$sql = "INSERT INTO records (record) VALUES ('?');";			//sql запрос 
 	$snapshot = $conn->prepare($sql);							//снимок запроса
 	$snapshot->execute([$record]);								//выполнение снмка запроса со значением
 
