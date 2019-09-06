@@ -1,7 +1,8 @@
 <?php
 	function create_table_records(){
-		//require_once($_SERVER['DOCUMENT_ROOT'].'/connection.php');
-		$sql = "SHOW TABLES LIKE 'records';";
+		require_once($_SERVER['DOCUMENT_ROOT'].'/connection.php');
+		//$sql = "SHOW TABLES LIKE  'records';";
+		$sql = "SHOW TABLES FROM '".$db_name."' LIKE 'records';"
 		$conn = conn();
 		$result_query = $conn->query($sql);
 		if($result_query->rowCount()==0){			
