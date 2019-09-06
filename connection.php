@@ -2,7 +2,6 @@
 
 function conn(){
 
-/*	
 	//heroku
 	$driver = 'mysql';				
 	$host = 'ec2-54-246-121-32.eu-west-1.compute.amazonaws.com';				
@@ -13,8 +12,8 @@ function conn(){
 	$port = '5432';
 	$dbpath ='';
 	$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
-*/
 
+/*	
 	//опен сервер
 	$driver = 'mysql';				
 	$host = 'record';				
@@ -25,7 +24,8 @@ function conn(){
 	$port = '';
 	$dbpath ='';
 	$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
-	
+*/
+
 	switch ($driver) {
 		case 'pgsql':
 				$dbconn = "pgsql:host=$host;port=$port;dbname=$db_name";
@@ -42,7 +42,7 @@ function conn(){
 
 	try {  
 		$conn = new PDO($dbconn,$user,$pass,$options);
-		echo "соединение прошло усешно!\nПрекрасно! Поздравляю!";
+		//echo "соединение прошло усешно!\nПрекрасно! Поздравляю!";
 	}  
 	catch(PDOException $e) {  
 	    echo $e->getMessage();  

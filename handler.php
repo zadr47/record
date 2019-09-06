@@ -1,6 +1,9 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'].'/connection.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/function.php');
 	
+	create_table_records();
+
 	$data = $_REQUEST;
 	
 	if(empty($data['record'])){
@@ -8,18 +11,20 @@
 		header("Location:/");
 	}
 
-	$record = $data['record'];
 	$conn = conn();
+	$record = $data['record'];
 
 	/*
-	$sql = "INSERT INTO records (record) VALUES (:record);";
-	$snapshot = $conn->prepare($sql);
-	$snapshot->execute([':record' => $record]);
+	//ИМЕНОВЫННЫЙ PLACEHOLDER
+	$sql = "INSERT INTO records (record) VALUES (:record);";	//sql запрос 
+	$snapshot = $conn->prepare($sql);							//снимок запроса
+	$snapshot->execute([':record' => $record]);					//выполнение снмка запроса со значением
 	*/
 
-	$sql = "INSERT INTO records (record) VALUES (?);";
-	$snapshot = $conn->prepare($sql);
-	//$snapshot->execute([$record]);
+	//ПОЗИЦИОННЫЙ PLACEHOLDER
+	$sql = "INSERT INTO records (record) VALUES (?);";			//sql запрос 
+	$snapshot = $conn->prepare($sql);							//снимок запроса
+	$snapshot->execute([$record]);								//выполнение снмка запроса со значением
 
 	$sql = "SELECT * FROM records";
 	$result_sql = $conn->query($sql);
