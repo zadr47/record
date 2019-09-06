@@ -1,6 +1,6 @@
 <?php
 	function create_table_records(){
-		$sql = "SHOW TABLES LIKE 'records';";
+		$sql = "SHOW TABLES LIKE `records`;";
 		$conn = conn();
 		$result_query = $conn->query($sql);
 		if($result_query->rowCount()==0){			

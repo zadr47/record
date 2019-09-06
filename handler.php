@@ -2,7 +2,7 @@
 	require_once($_SERVER['DOCUMENT_ROOT'].'/connection.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/function.php');
 	
-	//create_table_records();
+	create_table_records();
 
 	$data = $_REQUEST;
 	
