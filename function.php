@@ -1,5 +1,5 @@
 <?php
-	function create_table_records(){
+	function create_table_records($db_name){
 		require_once($_SERVER['DOCUMENT_ROOT'].'/connection.php');
 		//$sql = "SHOW TABLES LIKE  'records';";
 		$sql = "SHOW TABLES FROM '".$db_name."' LIKE 'records';";
@@ -12,3 +12,4 @@
 		}
 		$conn = NULL;
 	}
+
