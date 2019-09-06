@@ -2,6 +2,7 @@
 
 function conn(){
 
+/*	
 	//heroku
 	$driver = 'pgsql';				
 	$host = 'ec2-54-246-121-32.eu-west-1.compute.amazonaws.com';				
@@ -12,8 +13,8 @@ function conn(){
 	$port = '5432';
 	$dbpath ='';
 	$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+*/
 
-/*	
 	//опен сервер
 	$driver = 'mysql';				
 	$host = 'record';				
@@ -24,7 +25,6 @@ function conn(){
 	$port = '';
 	$dbpath ='';
 	$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
-*/
 
 	switch ($driver) {
 		case 'pgsql':

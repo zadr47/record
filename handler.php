@@ -14,6 +14,13 @@
 	$conn = conn();
 	$record = $data['record'];
 
+	$sql = "SELECT MAX(id) FROM `records`";
+	$result_query = $conn->query($sql);
+	$id = $result_query->fetch(PDO::FETCH_ASSOC);
+	$id = $id['MAX(id)'];
+	$id++;
+
+
 	/*
 	//ИМЕНОВЫННЫЙ PLACEHOLDER
 	$sql = "INSERT INTO records (record) VALUES (:record);";	//sql запрос 
@@ -22,15 +29,15 @@
 	*/
 
 	//ПОЗИЦИОННЫЙ PLACEHOLDER
-	$sql = "INSERT INTO `records` (\"record\") VALUES (?,'?');";		//sql запрос 
-	$snapshot = $conn->prepare($sql);							//снимок запроса
-	$snapshot->execute([1,$record]);								//выполнение снмка запроса со значением
+	$sql = "INSERT INTO `records` (id,record) VALUES (?,?);";		//sql запрос 
+	$snapshot = $conn->prepare($sql);								//снимок запроса
+	$snapshot->execute([$id,$record]);									//выполнение снмка запроса со значением
 
 	$sql = "SELECT * FROM `records`";
-	//$result_sql = $conn->query($sql);
-	//$data_DB = $result_sql->fetchAll(PDO::FETCH_ASSOC);
+	$result_sql = $conn->query($sql);
+	$data_DB = $result_sql->fetchAll(PDO::FETCH_ASSOC);
 	
-	echo "<br />";
+	
 	foreach($data_DB as $k => $v){
 		echo $v['record'];
 		echo "<br />";
