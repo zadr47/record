@@ -1,6 +1,5 @@
 <?php
 
-	$db_name = 'dfgngu63o3bvv0';
 function conn(){
 
 	//heroku
