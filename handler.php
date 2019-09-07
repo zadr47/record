@@ -22,13 +22,13 @@
 
 
 	//ИМЕНОВЫННЫЙ PLACEHOLDER
-	$sql = "INSERT INTO `records` (id,record) VALUES (:id,:record);";	//sql запрос 
+	$sql = "INSERT INTO records (id,record) VALUES (:id,:record);";	//sql запрос 
 	$snapshot = $conn->prepare($sql);									//снимок запроса
 	$snapshot->execute([':id' => $id , ':record' => $record]);			//выполнение снмка запроса со значением
 
 	/*
 	//ПОЗИЦИОННЫЙ PLACEHOLDER
-	$sql = "INSERT INTO `records` (id,record) VALUES (?,?);";			//sql запрос 
+	$sql = "INSERT INTO records (id,record) VALUES (?,?);";			//sql запрос 
 	$snapshot = $conn->prepare($sql);									//снимок запроса
 	$snapshot->execute([$id,$record]);									//выполнение снмка запроса со значением
 	*/
