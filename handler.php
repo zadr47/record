@@ -17,6 +17,7 @@
 	$sql = "SELECT MAX(id) FROM records";
 	$result_query = $conn->query($sql);
 	$id = $result_query->fetch(PDO::FETCH_ASSOC);
+	echo $id['MAX(id)'];
 	$id = $id['MAX(id)'];
 	$id++;
 
@@ -33,7 +34,7 @@
 	$snapshot->execute([$id,$record]);									//выполнение снмка запроса со значением
 	*/
 
-	$sql = "SELECT * FROM `records`";
+	$sql = "SELECT * FROM records";
 	$result_sql = $conn->query($sql);
 	$data_DB = $result_sql->fetchAll(PDO::FETCH_ASSOC);
 	
