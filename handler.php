@@ -18,7 +18,7 @@
 	$result_query = $conn->query($sql);
 	$id = $result_query->fetch(PDO::FETCH_ASSOC);
 	echo $id['MAX(id)'];
-	$id = $id['MAX(id)'];
+	$id = $id['MAX(id)']; 
 	$id++;
 
 
