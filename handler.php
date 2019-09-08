@@ -14,7 +14,7 @@
 	$conn = conn();
 	$record = $data['record'];
 
-	$sql = "SELECT MAX(id) FROM `records`";
+	$sql = "SELECT MAX(id) FROM records";
 	$result_query = $conn->query($sql);
 	$id = $result_query->fetch(PDO::FETCH_ASSOC);
 	$id = $id['MAX(id)'];
