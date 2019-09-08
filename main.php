@@ -29,7 +29,7 @@
 			<div class="record">
 				<form action="index.php" method="POST">
 				<?php 
-
+					
 					foreach($arrMessage as $k => $v):
 						$id = $v['id'];
 						echo $id;
