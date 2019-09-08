@@ -70,6 +70,7 @@
 		$conn = conn();
 		$result_sql = $conn->query($sql);
 		$arrMessage = $result_sql->fetchAll(PDO::FETCH_ASSOC);
+		damp($arrMessage);
 		$conn = NULL;
 
 		require_once($_SERVER['DOCUMENT_ROOT'].'/main.php');

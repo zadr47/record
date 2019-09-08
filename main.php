@@ -32,9 +32,9 @@
 					damp($arrMessage);
 					foreach($arrMessage as $k => $v):
 						$id = $v['id'];
-						$id = $id + 0;
+						//$id = $id + 0;
 						echo $id;
-						echo gettype($id);
+						//echo gettype($id);
 						echo $v['record'].' '."<button name='do_delete' value='$id'>удалить</button><br />";		
 					endforeach;	
 				 ?>	
