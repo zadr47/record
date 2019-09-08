@@ -1,4 +1,5 @@
 <?php
+	/*
 	require_once($_SERVER['DOCUMENT_ROOT'].'/connection.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/function.php');
 
@@ -17,7 +18,6 @@
 	$sql = "SELECT MAX(id) FROM records";
 	$result_query = $conn->query($sql);
 	$id = $result_query->fetch(PDO::FETCH_ASSOC);
-	echo $id['MAX(id)'];
 	$id = $id['MAX(id)']; 
 	$id++;
 
@@ -33,15 +33,20 @@
 	$snapshot = $conn->prepare($sql);									//снимок запроса
 	$snapshot->execute([$id,$record]);									//выполнение снмка запроса со значением
 	*/
-
-	$sql = "SELECT * FROM records";
+/*
+	$sql = "SELECT * FROM records ORDER BY id DESC";
 	$result_sql = $conn->query($sql);
 	$data_DB = $result_sql->fetchAll(PDO::FETCH_ASSOC);
 	
-	
-	foreach($data_DB as $k => $v){
-		echo $v['record'];
-		echo "<br />";
-	}
+	//if(isset)
 
-
+?>
+	<form action="handler.php" method="POST">
+<?php
+		foreach($data_DB as $k => $v){
+			echo $v['record'].' '."<input type='submit' name='do_delete".$k."' value='удалить'>";
+			echo $k;
+			echo "<br />";
+		}
+?>		
+	</form>
