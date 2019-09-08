@@ -2,10 +2,6 @@
 	require_once($_SERVER['DOCUMENT_ROOT'].'/connection.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/function.php');
 
-	$sql = "DROP TABLE records;";
-	$conn = conn();
-	$conn->query($sql);
-	$conn = NULL;
 
 	create_table_records();
 

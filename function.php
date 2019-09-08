@@ -9,8 +9,8 @@
 		}catch(PDOException $e) {  
 			
 			//$sql = "CREATE TABLE record.records ( id INT(11) NOT NULL , record VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ) ENGINE = MyISAM CHARSET=utf8 COLLATE utf8_general_ci;";
-			//$sql = "CREATE TABLE records ( id INT(11) , record VARCHAR(255) );";
-			$sql = "CREATE TABLE records ( id INT(11) , record VARCHAR(255) ) ENGINE = MyISAM;";
+			$sql = "CREATE TABLE records ( id INT(11) , record VARCHAR(255) );";
+			//$sql = "CREATE TABLE records ( id INT(11) , record VARCHAR(255) ) ENGINE = MyISAM;";
 			$conn->query($sql);		  
 		}
 		$conn = NULL;
