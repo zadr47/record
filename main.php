@@ -32,6 +32,7 @@
 
 					foreach($arrMessage as $k => $v):
 						$id = $v['id'];
+						echo $id;
 						echo $v['record'].' '."<button name='do_delete' value='$id'>удалить</button><br />";		
 					endforeach;	
 				 ?>	
