@@ -25,17 +25,32 @@
 			require_once($_SERVER['DOCUMENT_ROOT'].'/main.php');
 		}else{
 			//нужно занести в бд
+
+			/*
+			$sql = "SELECT MAX(id) FROM records;";
+			$conn = conn();
+			$result_query = $conn->query($sql);
+			$data_DB = $result_query->fetch(PDO::FETCH_ASSOC);
+			echo $data_DB['MAX(id)'];
+			$data_DB['MAX(id)']++;
+			echo "<br />";
+			echo gettype($data_DB['MAX(id)']);
+			//echo $id;
+			damp($data_DB);
+			$conn = NULL;
+			*/
+
 			$sql = "SELECT MAX(id) FROM records;";
 			$conn = conn();
 			$result_query = $conn->query($sql);
 			$max_id = $result_query->fetch(PDO::FETCH_ASSOC);
 			$id = $max_id['MAX(id)'];
 			$id = $id + 0;
-			echo gettype($id);
-			echo $id;
+			//echo gettype($id);
+			//echo $id;
 			echo "<br />";
 			$id++;
-			echo $id;
+			//echo $id;
 
 			$sql = "INSERT INTO records (id,record) VALUES (?,?);";
 			$snapshot = $conn->prepare($sql);
