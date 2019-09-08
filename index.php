@@ -47,11 +47,14 @@
 			$result_query = $conn->query($sql);
 			$max_id = $result_query->fetch(PDO::FETCH_ASSOC);
 			$id = $max_id['MAX(id)'];
+			echo gettype($id);
+			echo "<br />";
 			$id = $id + 0;
-			//echo gettype($id);
-			//echo $id;
+			echo gettype($id);
+			echo $id;
 			echo "<br />";
 			$id++;
+			echo $id;
 			//echo $id;
 
 			$sql = "INSERT INTO records (id,record) VALUES (?,?);";
