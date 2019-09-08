@@ -59,7 +59,7 @@
 
 			$sql = "INSERT INTO records (id,record) VALUES (?,?);";
 			$snapshot = $conn->prepare($sql);
-			$snapshot->execute([$id,$data['record']]);
+			$snapshot->execute([+$id,$data['record']]);
 
 			$sql = "SELECT * FROM records ORDER BY id DESC";
 			$conn = conn();
