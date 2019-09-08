@@ -7,6 +7,7 @@
 
 
 	$data = $_REQUEST;
+
 	if(isset($data['do_delete'])){
 		$sql ="DELETE FROM records WHERE id = ".$data['do_delete'].";";
 		$conn = conn();
@@ -28,38 +29,26 @@
 		}else{
 			//нужно занести в бд
 
-			/*
-			$sql = "SELECT MAX(id) FROM records;";
-			$conn = conn();
-			$result_query = $conn->query($sql);
-			$data_DB = $result_query->fetch(PDO::FETCH_ASSOC);
-			echo $data_DB['MAX(id)'];
-			$data_DB['MAX(id)']++;
-			echo "<br />";
-			echo gettype($data_DB['MAX(id)']);
-			//echo $id;
-			damp($data_DB);
-			$conn = NULL;
-			*/
 
-			$sql = "SELECT MAX(id) FROM records;";
+			$sql = "SELECT id FROM records;";
 			$conn = conn();
 			$result_query = $conn->query($sql);
-			$max_id = $result_query->fetch(PDO::FETCH_ASSOC);
-			$id = $max_id['MAX(id)'];
-			echo gettype($id);
-			echo "<br />";
-			$id = $id + 0;
-			echo gettype($id);
-			echo $id;
-			echo "<br />";
+			$arrId = $result_query->fetchAll(PDO::FETCH_ASSOC);
+
+			$max_id = 0;
+			foreach ($arrId as $K => $v) {
+				foreach ($v as $var) {
+					if($var > $max_id){
+						$max_id = $var;
+					}
+				}
+			}
+			$id = $max_id;
 			$id++;
-			echo $id;
-			//echo $id;
 
 			$sql = "INSERT INTO records (id,record) VALUES (?,?);";
 			$snapshot = $conn->prepare($sql);
-			$snapshot->execute([+$id,$data['record']]);
+			$snapshot->execute([$id,$data['record']]);
 
 			$sql = "SELECT * FROM records ORDER BY id DESC";
 			$conn = conn();
@@ -75,7 +64,7 @@
 		$conn = conn();
 		$result_sql = $conn->query($sql);
 		$arrMessage = $result_sql->fetchAll(PDO::FETCH_ASSOC);
-		damp($arrMessage);
+		
 		$conn = NULL;
 
 		require_once($_SERVER['DOCUMENT_ROOT'].'/main.php');
